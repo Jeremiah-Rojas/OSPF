@@ -84,3 +84,5 @@ The changes may be difficult to spot so I am going to explain them briefly:
 <img width="1799" height="455" alt="image" src="https://github.com/user-attachments/assets/0bfb9911-e398-4e5c-9224-e0d906ee535f" />
 
 - For the remaining configuration changes on R3 and R4, the routes under "Gateway of last resort is not set" are altered when attempting to reach "1.1.1.1" and "2.2.2.2". 
+
+On a small scale, these changes do not appear to make any difference, but when hundreds of routers are joined together and the optimal route must always be taken, handling link failures manually becomes a nearly impossible task. OSPF ensures and continuous traffic flow in the event of unexpected cable failures.
