@@ -69,3 +69,13 @@ Below are the resulting changes:
 - listens to all OSPF updates
 - immediately takes over if the DR fails
 “Gateway of last resort is not set” means no default gateway is configured. A default gateway is where traffic is sent when the router doesn’t know how to reach a certain address/device.
+
+## Conclusions
+
+__Note: I apologize in advance because the comparison images may be hard to read.__
+The changes may be difficult to spot so I am going to explain them briefly:
+- The link between R1 and R2 was "broken" on port g0/0 on both devices
+- Under the “Neighbor ID” column, the “2.2.2.2” entry is no longer present after the break. Also, the state changes from “BDR” to “DOWN” on the g0/0 interface. On the bottom two images, we see the results: The destination “2.2.2.2” is no longer reachable via ```10.0.12.2``` which is the IP of R2. Now it is only reachable going through ```10.0.41.3``` which is R4.
+<img width="1806" height="456" alt="image" src="https://github.com/user-attachments/assets/e77ca46a-d149-4ca6-ad6b-e4aa5133a4fa" />
+
+- 
