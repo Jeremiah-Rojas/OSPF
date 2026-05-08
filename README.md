@@ -20,6 +20,8 @@ __Note: It is recommended to copy and paste these commands into the routers. Bec
 |----|----|----|----|
 | conf t<br>hostname R1<br>end<br><br>conf t<br>interface loopback0<br>ip address 1.1.1.1 255.255.255.255<br>exit<br>interface g0/0<br>ip address 10.0.12.1 255.255.255.0<br>no shutdown<br>exit<br>interface g0/1<br>ip address 10.0.41.1 255.255.255.0<br>no shutdown<br>exit<br><br>router ospf 1<br>router-id 1.1.1.1<br>network 10.0.12.0 0.0.0.255 area 0<br>network 10.0.41.0 0.0.0.255 area 0<br>network 1.1.1.1 0.0.0.0 area 0<br>end<br>wr | conf t<br>hostname R2<br>end<br><br>conf t<br>interface loopback0<br>ip address 2.2.2.2 255.255.255.255<br>exit<br>interface g0/0<br>ip address 10.0.12.2 255.255.255.0<br>no shutdown<br>exit<br>interface g0/1<br>ip address 10.0.23.2 255.255.255.0<br>no shutdown<br>exit<br><br>router ospf 1<br>router-id 2.2.2.2<br>network 10.0.12.0 0.0.0.255 area 0<br>network 10.0.23.0 0.0.0.255 area 0<br>network 2.2.2.2 0.0.0.0 area 0<br>end<br>wr | conf t<br>hostname R3<br>end<br><br>conf t<br>interface loopback0<br>ip address 3.3.3.3 255.255.255.255<br>exit<br>interface g0/0<br>ip address 10.0.34.3 255.255.255.0<br>no shutdown<br>exit<br>interface g0/1<br>ip address 10.0.41.3 255.255.255.0<br>no shutdown<br>exit<br><br>router ospf 1<br>router-id 3.3.3.3<br>network 10.0.34.0 0.0.0.255 area 0<br>network 10.0.41.0 0.0.0.255 area 0<br>network 3.3.3.3 0.0.0.0 area 0<br>end<br>wr | conf t<br>hostname R4<br>end<br><br>conf t<br>interface loopback0<br>ip address 4.4.4.4 255.255.255.255<br>exit<br>interface g0/0<br>ip address 10.0.34.4 255.255.255.0<br>no shutdown<br>exit<br>interface g0/1<br>ip address 10.0.23.4 255.255.255.0<br>no shutdown<br>exit<br><br>router ospf 1<br>router-id 4.4.4.4<br>network 10.0.34.0 0.0.0.255 area 0<br>network 10.0.23.0 0.0.0.255 area 0<br>network 4.4.4.4 0.0.0.0 area 0<br>end<br>wr |
 
+<br>Addresses such as "1.1.1.1" are loopback addresses.
+
 These images show OSPF fully functional and the configuration details:
 
 <br>Router 1: <img width="875" height="139" alt="image" src="https://github.com/user-attachments/assets/75bf4d7b-9114-42f1-91dc-dacbcaf356dc" />
@@ -75,7 +77,10 @@ Below are the resulting changes:
 __Note: I apologize in advance because the comparison images may be hard to read.__
 The changes may be difficult to spot so I am going to explain them briefly:
 - The link between R1 and R2 was "broken" on port g0/0 on both devices
-- Under the “Neighbor ID” column, the “2.2.2.2” entry is no longer present after the break. Also, the state changes from “BDR” to “DOWN” on the g0/0 interface. On the bottom two images, we see the results: The destination “2.2.2.2” is no longer reachable via ```10.0.12.2``` which is the IP of R2. Now it is only reachable going through ```10.0.41.3``` which is R4.
+- On the Router 1 OSPF details, under the “Neighbor ID” column, the “2.2.2.2” entry is no longer present after the break. Also, the state changes from “BDR” to “DOWN” on the g0/0 interface. On the bottom two images, we see the results: The destination “2.2.2.2” is no longer reachable via ```10.0.12.2``` which is the IP of R2. Now it is only reachable going through ```10.0.41.3``` which is R4.
 <img width="1806" height="456" alt="image" src="https://github.com/user-attachments/assets/e77ca46a-d149-4ca6-ad6b-e4aa5133a4fa" />
 
-- 
+- We see very similar changes in the same places on Router 2:
+<img width="1799" height="455" alt="image" src="https://github.com/user-attachments/assets/0bfb9911-e398-4e5c-9224-e0d906ee535f" />
+
+- For the remaining configuration changes on R3 and R4, the routes under "Gateway of last resort is not set" are altered when attempting to reach "1.1.1.1" and "2.2.2.2". 
