@@ -45,14 +45,6 @@ These images show OSPF fully functional and the configuration details:
 <br>OSPF route (using “show ip route ospf”): <img width="872" height="235" alt="image" src="https://github.com/user-attachments/assets/af8f177e-b416-43a3-940f-4264570f2a66" />
 
 
-(DR) Designated Router: the central router responsible for 
-- collecting and distributing OSPF link-state updates
-- reducing the number of OSPF adjacencies required
-(BDR) Backup Designated Router: a standby router that 
-- listens to all OSPF updates
-- immediately takes over if the DR fails
-“Gateway of last resort is not set” means no default gateway is configured. A default gateway is where traffic is sent when the router doesn’t know how to reach a certain address/device.
-
 ## New topology after stopping “breaking” a link:
 <img width="524" height="313" alt="image" src="https://github.com/user-attachments/assets/78ec6274-1a68-4e0d-ac06-0a8041d9a256" />
 
@@ -70,3 +62,10 @@ Below are the resulting changes:
 
 <br>Router 4 OSPF details: <img width="873" height="410" alt="image" src="https://github.com/user-attachments/assets/db64ad30-ab4f-424d-8682-b88d1578c7d1" />
 
+(DR) Designated Router: the central router responsible for 
+- collecting and distributing OSPF link-state updates
+- reducing the number of OSPF adjacencies required
+(BDR) Backup Designated Router: a standby router that 
+- listens to all OSPF updates
+- immediately takes over if the DR fails
+“Gateway of last resort is not set” means no default gateway is configured. A default gateway is where traffic is sent when the router doesn’t know how to reach a certain address/device.
