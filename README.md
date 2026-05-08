@@ -58,10 +58,15 @@ These images show OSPF fully functional and the configuration details:
 
 Below are the resulting changes:
 
-<br>Router 1 OSPF details:
+<br>Router 1 OSPF details: <img width="874" height="403" alt="image" src="https://github.com/user-attachments/assets/8ea0bda0-c7b5-4cae-b2df-878071312169" />
 
-<br>Router 2 OSPF details:
 
-<br>Router 3 OSPF details:
+<br>Router 2 OSPF details: <img width="873" height="398" alt="image" src="https://github.com/user-attachments/assets/13bff3b0-329e-4b6b-becf-8fe45ebbc22e" />
 
-<br>Router 4 OSPF details:
+
+<br>Router 3 OSPF details: <img width="872" height="403" alt="image" src="https://github.com/user-attachments/assets/3764e049-4524-4af0-8a94-1fae4d56be26" />
+
+
+
+<br>Router 4 OSPF details: <img width="873" height="410" alt="image" src="https://github.com/user-attachments/assets/db64ad30-ab4f-424d-8682-b88d1578c7d1" />
+
