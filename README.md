@@ -8,7 +8,7 @@
 This lab demonstrates OSPF's functionality.
 
 ### Devices Used:
-- Cisco IOSvL2 15.2.1 switch
+- Cisco IOSv 15.7 router
 - GNS3 Software
 - Ubuntu Container (running on VMware machine)
 
